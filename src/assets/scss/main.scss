@@ -1,0 +1,54 @@
+@import 'reset';
+
+header, main {
+  max-width: 360px;
+  margin: 0 auto;
+}
+
+header {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 2rem;
+  h1 {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+}
+
+
+img {
+  width: 5rem;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+  gap: 1rem;
+}
+
+input,
+button,
+.resultado {
+  min-height: 45px;
+  box-shadow: 0 0 0 1px hsla(0, 0%, 0%, 0.5);
+  padding: 0 1rem;
+}
+
+.resultado {
+  display: flex;
+  align-items: center;
+}
+
+p,
+span,
+li,
+input,
+button,
+textarea,
+select {
+  font-size: 1.8rem;
+}
