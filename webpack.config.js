@@ -40,7 +40,7 @@ module.exports = (env, argv) => {
     },
     plugins: [
       new HtmlWebpackPlugin({
-        title: "Webpack Curso",
+        title: "Workbox Curso",
         template: path.resolve(__dirname, "public", "index.html"),
       }),
       new MiniCssExtractPlugin({
