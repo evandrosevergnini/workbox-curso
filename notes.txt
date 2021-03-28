@@ -1,3 +1,13 @@
+package.json:
+
+  "scripts": {
+    "serve-dev": "webpack serve --mode=development",
+    "build-dev": "webpack --mode=development",
+    "serve-prod": "webpack serve",
+    "build-prod": "webpack"
+  },
+
+webpack.config.js:
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
@@ -75,3 +85,7 @@ module.exports = (env, argv) => {
     ],
   };
 };
+
++ transformando o objeto em função e passando os argumentos 
++ setando o mode usando argv && argv.mode === "development"
++ usando spread operator para instanciar o faviconsWebpackPlugin somente para produção

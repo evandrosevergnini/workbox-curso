@@ -6,10 +6,9 @@
   "author": "Evandro C. Severginini <evandrosevergnini@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "serve-dev": "webpack serve --mode=development",
-    "build-dev": "webpack --mode=development",
-    "serve-prod": "webpack serve",
-    "build-prod": "webpack"
+    "serve": "webpack serve --mode=development",
+    "build": "webpack",
+    "serve-build": "http-server ./dist -o"
   },
   "devDependencies": {
     "@babel/core": "^7.13.10",
