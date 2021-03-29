@@ -1,10 +1,36 @@
-main.js
-Descomentar o código:
-if ("serviceWorker" in navigator) {
-  window.addEventListener("load", function () {
-    navigator.serviceWorker.register("/service-worker.js")
+/public/index.html:
++ acrescentar
+<section id="users">
+  <h1>Usuários</h1>
+</section>
+
+<script>
+  window.addEventListener("load", () => {
+    fetch("https://jsonplaceholder.typicode.com/users")
+      .then((response) => response.json())
+      .then((users) => listaUsersNaView(users))
+      .catch((error) =>
+        console.error(`%cNão foi possível carregar os usuários: ${error}`, "padding: 1rem; color: yellow;")
+      );
   });
-}
+  function listaUsersNaView(users) {
+    const usersEl = document.getElementById("users");
+    const ulEl = document.createElement("ul");
+    users.forEach((user) => {
+      const liEl = document.createElement("li");
+      liEl.innerHTML = `
+        <span>Usuário: ${user.name}</span>
+        <span>
+          Username: ${user.username}<br>
+          Email: ${user.email})<br>
+          website: ${user.website}
+        </span>
+        `;
+      ulEl.appendChild(liEl);
+    });
+    usersEl.appendChild(ulEl);
+  }
+</script>
 
 webpack.config.js:
 // const {GenerateSW} = require('workbox-webpack-plugin');
