@@ -1,5 +1,3 @@
-yarn add --dev workbox-webpack-plugin
-
 main.js
 Descomentar o código:
 if ("serviceWorker" in navigator) {
@@ -9,8 +7,20 @@ if ("serviceWorker" in navigator) {
 }
 
 webpack.config.js:
-const {GenerateSW} = require('workbox-webpack-plugin');
-new GenerateSW({
-  clientsClaim: true,
-  skipWaiting: true,
-}),
+// const {GenerateSW} = require('workbox-webpack-plugin');
+   const { InjectManifest } = require("workbox-webpack-plugin");
+
+//  new GenerateSW({
+//    clientsClaim: true,
+//    skipWaiting: true,
+//  }),
+    new InjectManifest({
+      swSrc: './public/service-worker.js',
+      swDest: './service-worker.js',
+    }),
+
+./public/service-worker.js
+import { precacheAndRoute } from 'workbox-precaching';
+precacheAndRoute(self.__WB_MANIFEST);
+
+console.log('Hello from service-worker.js');

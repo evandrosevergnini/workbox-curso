@@ -2,7 +2,7 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
-const { GenerateSW } = require("workbox-webpack-plugin");
+const { InjectManifest } = require("workbox-webpack-plugin");
 
 module.exports = (env, argv) => {
   return {
@@ -73,10 +73,11 @@ module.exports = (env, argv) => {
               },
             }),
           ]),
-      new GenerateSW({
-        clientsClaim: true,
-        skipWaiting: true,
-      }),
+          new InjectManifest({
+            swSrc: './public/service-worker.js',
+            swDest: './service-worker.js',
+            // Any other config if needed.
+          }),
     ],
   };
 };
