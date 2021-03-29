@@ -1,10 +1,9 @@
 package.json:
 
   "scripts": {
-    "serve-dev": "webpack serve --mode=development",
-    "build-dev": "webpack --mode=development",
-    "serve-prod": "webpack serve",
-    "build-prod": "webpack"
+    "serve": "webpack serve --mode=development",
+    "build": "webpack",
+    "serve-build": "http-server ./dist -o"
   },
 
 webpack.config.js:
